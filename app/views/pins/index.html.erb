@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<h2>Pins</h2>
+
+<div id="pins">
+  <% @pins.each do |pin| %>
+    <%= render pin %>
+
+  <% end %>
+</div>
+
+<%= link_to "New pin", new_pin_path %>
