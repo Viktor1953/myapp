@@ -1,6 +1,6 @@
   <div class="header">
     <% if current_user %>
-    <%= link_to "Home", root_path %> - <%= link_to "Pins", pins_path %> - 
+    <%= link_to "Rooms", root_path %> - <%= link_to "Pins", pins_path %> - 
 
         <% if user_signed_in? %>
           <%= link_to current_user.username, user_path(current_user.id) %>
