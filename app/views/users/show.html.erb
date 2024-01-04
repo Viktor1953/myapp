@@ -1,0 +1,16 @@
+<h2>Profile</h2>
+  <ul>
+    <li>ID User : <%= @user.id %></li>
+    <li>Name : <%= @user.username %></li>
+    <li>Email : <%= @user.email %></li>
+    <li>Role : <%= @user.role %></li>
+
+    <li>Created_at : <%= @user.created_at %></li>
+    <li><%= link_to "Edit", edit_user_registration_path if current_user == @user %></li>
+
+  </ul>
+
+  <div class="logout">
+<%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: "false" } %>
+</div>
+

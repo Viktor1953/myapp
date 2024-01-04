@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get 'users/index'
+  get 'users/show'
+  
+  match '/users', to: 'users#index', via: 'get'
+  match '/users/:id', to: 'users#show', via: 'get'
+
+  devise_for :users, :path_prefix => 'd'
+  resources :users, :only =>[:show]
+
   root 'pages#index'
   resources :pins
   get 'pages/index'

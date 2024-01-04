@@ -1,4 +1,14 @@
   <div class="header">
-    <%= link_to "Home", root_path %> - <%= link_to "Pins", pins_path %>
+    <% if current_user %>
+    <%= link_to "Home", root_path %> - <%= link_to "Pins", pins_path %> - 
+
+        <% if user_signed_in? %>
+          <%= link_to current_user.username, user_path(current_user.id) %>
+        <% end %>
+
+    <% else %>
+      <%= link_to "Login", new_user_session_path %>
+      <%= link_to "Sign Up", new_user_registration_path %>
+    <% end %>
   </div>
 <%= tag.hr %>
