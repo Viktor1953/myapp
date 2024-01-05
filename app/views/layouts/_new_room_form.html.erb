@@ -1,4 +1,5 @@
-<%= form_with(model: @room, remote: true, class: "d-flex" ) do |f| %>
+<%= form_with(model: @room, remote: true, class: "d-flex",
+     data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } ) do |f| %>
 
   <ul>
     <li><%= f.text_field :name, class: "form-control", autocomplete: 'off' %></li>

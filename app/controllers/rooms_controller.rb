@@ -12,12 +12,16 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @current_user = current_user
     @single_room = Room.find(params[:id])
-    @rooms = Room.public_rooms
-    @users = User.all_except(@current_user)
+    
     @room = Room.new
-  
+    @rooms = Room.public_rooms
+
+    @message = Message.new
+    @messages = @single_room.messages
+
+    @current_user = current_user
+    @users = User.all_except(@current_user)
     render "index"
   end
 
