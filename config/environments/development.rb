@@ -14,6 +14,11 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+# new
+  config.log_level = :debug
+  #config.log_level = :info
+# new
+
   # Enable server timing
   config.server_timing = true
 

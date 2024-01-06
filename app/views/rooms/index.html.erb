@@ -27,14 +27,12 @@
     </div>
   </div>
 
-
 <div class="col-md-10 bg-dark text-light">
   <% if @single_room %>
 <!---
     <h4 class="text-center"> <%#= @single_room.name %> </h4>
 -->
 <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
-
 
       <%= turbo_stream_from @single_room %>
         <div id="messages">
@@ -45,4 +43,3 @@
 </div>
 
 </div>
-
