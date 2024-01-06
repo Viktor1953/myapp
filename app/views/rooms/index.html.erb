@@ -1,3 +1,9 @@
+<p>
+Если нажать на имя пользователя - то входишь в переписку с этим пользователем. И эту переписку видят только двое: кто вошел и чье имя нажал.
+</p>
+<p>
+Если нажать на название комнаты - будет возможна переписка со всеми кто создавал комнату и кто вошел
+</p>
 
 </div>
 <%- tag.hr %>
@@ -24,7 +30,12 @@
 
 <div class="col-md-10 bg-dark text-light">
   <% if @single_room %>
-    <h4 class="text-center"> <%= @single_room.name %> </h4>
+<!---
+    <h4 class="text-center"> <%#= @single_room.name %> </h4>
+-->
+<h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
+
+
       <%= turbo_stream_from @single_room %>
         <div id="messages">
           <%= render @messages %>

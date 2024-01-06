@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  has_many :messages
+  has_many :messages, dependent: :destroy
   
   validates_uniqueness_of :username
   scope :all_except, ->(user) { where.not(id: user) }
