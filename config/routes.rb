@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :rooms do
-    resources :messages
-  end
+  # resources :rooms do
+  #   resources :messages
+  # end
   
   # root 'rooms#index'
   resources :rooms
-  # get 'users/index'
-  # get 'users/show'
-  
+
   match '/users', to: 'users#index', via: 'get'
   match '/users/:id', to: 'users#show', via: 'get'
 

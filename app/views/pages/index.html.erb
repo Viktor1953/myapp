@@ -1,17 +1,21 @@
 <h2>Pages#index</h2>
-<p>Это черновик домашней страницы</p>
-<p>Чтобы пройти дальше нужно зарегистрироваться - нужно имя и любая электронная почта</p>
 
-<p>Pins - первая пробная страница </p>
-<p>Rooms - проход на TimeReal Chat 
-<ul>   
-<li>- На чате - список зарегистрированных юзеров</li>
-<li>- Список комнат для переговоров</li>
-<li>- комнаты можно создавать на свое усмотренение, при этом откроется ссылка для прохода в комнату</li>
-<li>- проходите по ссылке / появляется окошко для сообщения - пишите</li>
-<li>- это все что успел сделать за сутки - дальше нужно создавать кучу (много) всяких микросервисов и делать приседаний</li>
+    <% if current_user %>
+   <div class="logout">
+<%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: "false" } %>
+</div>
+
+        <% if user_signed_in? %>
+          <%= link_to current_user.username, user_path(current_user.id) %> - 
+<%= link_to "Home", root_path %> - <%= link_to "Pins", pins_path %> - <%= link_to "Rooms", rooms_path %>
 
 
 
-</ul>
-</p>
+
+
+        <% end %>
+
+    <% else %>
+      <%= link_to "Login", new_user_session_path %>
+      <%= link_to "Sign Up", new_user_registration_path %>
+    <% end %>

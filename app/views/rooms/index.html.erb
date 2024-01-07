@@ -1,51 +1,23 @@
-<p>
-Если нажать на имя пользователя - то входишь в переписку с этим пользователем. И эту переписку видят только двое: кто вошел и чье имя нажал.
-</p>
-<p>
-Если нажать на название комнаты - будет возможна переписка со всеми кто создавал комнату и кто вошел
-</p>
-
-</div>
-<%- tag.hr %>
 <div class="row">
   <div class="col-md-2">
     <h5> Hi <%= @current_user.username %> </h5>
-    <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: "false" } %>
     <h4> Users </h4>
     <div>
-
       <%= turbo_stream_from "users" %>
       <div id="users">
         <%= render @users %>
       </div>
-
     </div>
     <h4> Rooms </h4>
     <%= render partial: "layouts/new_room_form" %>
     <div>
-
       <%= turbo_stream_from "rooms" %>
       <div id="rooms">
         <%= render @rooms %>
       </div>
-
-      
     </div>
   </div>
-
-<div class="col-md-10 bg-dark text-light">
-  <% if @single_room %>
-<!---
-    <h4 class="text-center"> <%#= @single_room.name %> </h4>
--->
-<h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
-
-      <%= turbo_stream_from @single_room %>
-        <div id="messages">
-          <%= render @messages %>
-        </div>
-      <%= render partial: 'layouts/new_message_form' %>
-  <% end %>
-</div>
-
+  <div class="col-md-10 bg-dark">
+    The chat box stays here
+  </div>
 </div>
